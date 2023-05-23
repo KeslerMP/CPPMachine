@@ -4,14 +4,12 @@
 
 using namespace std;
 
-// Estrutura para armazenar informações do produto
 struct Product {
     string name;
     float price;
     int quantity;
 };
 
-// Função para exibir o menu de opções
 void displayMenu() {
     cout << "==== Modo Usuário ====" << endl;
     cout << "Selecione uma opção:" << endl;
@@ -20,7 +18,6 @@ void displayMenu() {
     cout << "0. Sair" << endl;
 }
 
-// Função para listar os produtos disponíveis
 void listProducts(const vector<Product>& products) {
     cout << "Produtos disponíveis:" << endl;
     for (const auto& product : products) {
@@ -29,7 +26,6 @@ void listProducts(const vector<Product>& products) {
     cout << endl;
 }
 
-// Função para comprar um produto
 void buyProduct(vector<Product>& products) {
     string productName;
     float insertedAmount;
@@ -37,20 +33,16 @@ void buyProduct(vector<Product>& products) {
     cout << "Digite o nome do produto que deseja comprar: ";
     cin >> productName;
 
-    // Procurar o produto pelo nome
     auto it = find_if(products.begin(), products.end(), [&](const Product& p) {
         return p.name == productName;
     });
 
-    // Verificar se o produto foi encontrado
     if (it != products.end()) {
         Product& product = *it;
         cout << "Digite o valor inserido na máquina: R$";
         cin >> insertedAmount;
 
-        // Verificar se o valor é suficiente e o produto está disponível
         if (insertedAmount >= product.price && product.quantity > 0) {
-            // Atualizar a quantidade do produto e calcular o troco
             product.quantity--;
             float change = insertedAmount - product.price;
 
@@ -67,7 +59,6 @@ void buyProduct(vector<Product>& products) {
 }
 
 int main() {
-    // Inicializar a lista de produtos
     vector<Product> products = {
         {"Produto A", 2.5, 5},
         {"Produto B", 3.0, 3},
