@@ -124,6 +124,8 @@ void adminMode (vector<Product>& products) {
     }
 }
 
+//alteração teste
+
 int main() {
     vector<Product> products = {
         { "Coca-Cola", 4.5f, 5 },
