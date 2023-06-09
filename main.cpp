@@ -12,16 +12,16 @@ struct Product {
 };
 
 void displayMenu() {
-    cout << "==== Modo Usuário ====" << endl;
-    cout << "Selecione uma opção:" << endl;
-    cout << "1. Listar produtos disponíveis" << endl;
+    cout << "==== Modo Usuario ====" << endl;
+    cout << "Selecione uma opcao:" << endl;
+    cout << "1. Listar produtos disponiveis" << endl;
     cout << "2. Comprar um produto" << endl;
     cout << "3. Modo Administrador (Admin only)" << endl;
     cout << "0. Sair" << endl;
 }
 
 void listProducts(const vector<Product>& products) {
-    cout << "Produtos disponíveis:" << endl;
+    cout << "Produtos disponiveis:" << endl;
     for (const auto& product : products) {
         cout << product.name << " - R$" << product.price << " (Quantidade: " << product.quantity << ")" << endl;
     }
@@ -41,7 +41,7 @@ void buyProduct(vector<Product>& products) {
 
     if (it != products.end()) {
         Product& product = *it;
-        cout << "Digite o valor inserido na máquina: R$";
+        cout << "Digite o valor inserido na maquina: R$";
         cin >> insertedAmount;
 
         if (insertedAmount >= product.price && product.quantity > 0) {
@@ -67,7 +67,7 @@ void addProduct(vector<Product>& products) {
 
     cout << "Digite o nome do produto: ";
     cin >> productName;
-    cout << "Digite o preço do produto: ";
+    cout << "Digite o preco do produto: ";
     cin >> productPrice;
     cout << "Digite a quantidade do produto: ";
     cin >> productQuantity;
@@ -87,7 +87,7 @@ void adminMode (vector<Product>& products) {
         int option;
         do {
             cout << "==== Modo Administrador ====" << endl;
-            cout << "Selecione uma opção:" << endl;
+            cout << "Selecione uma opcao:" << endl;
             cout << "1. Listar produtos e quantidades" << endl;
             cout << "2. Adicionar produto" << endl;
             cout << "3. Remover produto" << endl;
@@ -128,7 +128,7 @@ int main() {
     vector<Product> products = {
         { "Coca-Cola", 4.5f, 5 },
         { "Pepsi", 4.0f, 5 },
-        { "Guaraná", 3.5f, 5 },
+        { "Guarana", 3.5f, 5 },
         { "Fanta", 3.0f, 5 },
         { "Agua", 2.5f, 5 },
         { "Suco", 2.0f, 5 },
