@@ -1,6 +1,6 @@
 # CPPMachine
 
-## Autores feito em pair pair programming:
+## Feito em pair programming:
 
 ## KÉSLER MIRANDA PEREIRA || RA: 2840482313045
 
