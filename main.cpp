@@ -76,6 +76,51 @@ void buyProduct(vector<Product>& products) {
     cout << endl;
 }
 
+void changeQuantity(vector<Product>& products){
+    string productName;
+    int productQuantity;
+
+    cout << "Digite o nome do produto: ";
+    cin >> productName;
+    cout << "Digite a nova quantidade do produto: ";
+    cin >> productQuantity;
+
+    auto it = find_if(products.begin(), products.end(), [&](const Product& p) {
+        return p.name == productName;
+    });
+
+    if (it != products.end()) {
+        Product& product = *it;
+        product.quantity = productQuantity;
+        cout << "Quantidade alterada com sucesso!" << endl;
+    } else {
+        cout << "Produto nao encontrado." << endl;
+    }
+
+    cout << endl;
+}
+
+void removeProduct(vector<Product>& products) {
+    string productName;
+
+    cout << "Digite o nome do produto: ";
+    cin >> productName;
+
+    auto it = find_if(products.begin(), products.end(), [&](const Product& p) {
+        return p.name == productName;
+    });
+
+    if (it != products.end()) {
+        Product& product = *it;
+        products.erase(it);
+        cout << "Produto " << product.name << " removido com sucesso!" << endl;
+    } else {
+        cout << "Produto nao encontrado." << endl;
+    }
+
+    cout << endl;
+}
+
 void addProduct(vector<Product>& products) {
     string productName;
     float productPrice;
@@ -122,9 +167,11 @@ void adminMode (vector<Product>& products) {
                     break;
                 case 3:
                     cout << "Remover produto" << endl;
+                    removeProduct(products);
                     break;
                 case 4:
                     cout << "Alterar quantidade de produto" << endl;
+                    changeQuantity(products);
                     break;
                 case 5:
                     cout << "Listar faturamento" << endl;
