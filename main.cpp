@@ -11,6 +11,21 @@ struct Product {
     int quantity;
 };
 
+float profit = 0;
+
+
+void showProfit(vector<Product>& products) {
+
+    float capacity = 0;
+    for (const auto& product : products) {
+        capacity += product.price * product.quantity;
+    }
+
+    cout << "Capacidade de rendimento: R$" << capacity << endl;
+    cout << "Seu rendimento foi de R$" << profit << endl;
+    cout << endl;
+}
+
 void displayMenu() {
     cout << "==== Modo Usuario ====" << endl;
     cout << "Selecione uma opcao:" << endl;
@@ -47,6 +62,7 @@ void buyProduct(vector<Product>& products) {
         if (insertedAmount >= product.price && product.quantity > 0) {
             product.quantity--;
             float change = insertedAmount - product.price;
+            profit = product.price++;
 
             cout << "Produto " << product.name << " comprado com sucesso!" << endl;
             cout << "Troco: R$" << change << endl;
@@ -112,6 +128,7 @@ void adminMode (vector<Product>& products) {
                     break;
                 case 5:
                     cout << "Listar faturamento" << endl;
+                    showProfit(products);
                     break;
                 case 0:
                     cout << "Voltando..." << endl;

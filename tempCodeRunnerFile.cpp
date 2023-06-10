@@ -1,1 +1,1 @@
-adminMode
+"Produto nao encontrado."
