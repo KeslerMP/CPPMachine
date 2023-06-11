@@ -13,7 +13,7 @@ struct Product {
 
 float profit = 0;
 
-
+//Função onde mostra o lucro que a maquina deu e ainda pode dar com os produtos disponiveis no vetor
 void showProfit(vector<Product>& products) {
 
     float capacity = 0;
@@ -26,6 +26,7 @@ void showProfit(vector<Product>& products) {
     cout << endl;
 }
 
+//Função onde da display ao menu para o usuario
 void displayMenu() {
     cout << "==== Modo Usuario ====" << endl;
     cout << "Selecione uma opcao:" << endl;
@@ -35,6 +36,7 @@ void displayMenu() {
     cout << "0. Sair" << endl;
 }
 
+//Função para a listagem de produtos contidos no vetor
 void listProducts(const vector<Product>& products) {
     cout << "Produtos disponiveis:" << endl;
     for (const auto& product : products) {
@@ -43,6 +45,7 @@ void listProducts(const vector<Product>& products) {
     cout << endl;
 }
 
+//Função feita para o usuario comprar os produtos disponiveis na maquina
 void buyProduct(vector<Product>& products) {
     string productName;
     float insertedAmount;
@@ -76,6 +79,7 @@ void buyProduct(vector<Product>& products) {
     cout << endl;
 }
 
+//Função para o admin modificar a quantidade de produtos disponiveis na maquina
 void changeQuantity(vector<Product>& products){
     string productName;
     int productQuantity;
@@ -100,6 +104,7 @@ void changeQuantity(vector<Product>& products){
     cout << endl;
 }
 
+//função para o admin remover os produtos contidos na maquina
 void removeProduct(vector<Product>& products) {
     string productName;
 
@@ -121,6 +126,7 @@ void removeProduct(vector<Product>& products) {
     cout << endl;
 }
 
+//Função para o admin adcionar produtos novos ao vetor de produtos
 void addProduct(vector<Product>& products) {
     string productName;
     float productPrice;
@@ -136,6 +142,7 @@ void addProduct(vector<Product>& products) {
     products.push_back({ productName, productPrice, productQuantity });
 }
 
+//Função para mostrar o menu admistrativo da maquina
 void adminMode (vector<Product>& products) {
     int senha;
     cout << "Digite a senha: ";
@@ -188,8 +195,8 @@ void adminMode (vector<Product>& products) {
     }
 }
 
-//alteração teste
 
+//Função main do projeto onde é o menu do usuário
 int main() {
     vector<Product> products = {
         { "Coca-Cola", 4.5f, 5 },
