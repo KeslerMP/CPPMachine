@@ -1,4 +1,4 @@
-# CPPMachine
+# CPP Vending Machine
 
 ## Feito em pair programming:
 
